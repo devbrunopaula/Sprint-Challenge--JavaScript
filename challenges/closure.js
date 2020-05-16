@@ -6,19 +6,35 @@
 const external = "I'm outside the function";
 
 function myFunction() {
-  console.log(external);
+  // console.log(external);
   const internal = "Hello! I'm inside myFunction!";
 
   function nestedFunction() {
-    console.log(internal);
+    // console.log(internal);
   };
   nestedFunction();
 }
 myFunction();
 
 // Explanation: 
-
+// The nested function has access to all variables in its own scope and in global and its parant my fucntion scopes 
+// unless they are masked by another variable of the same name).
 
 /* Task 2: Counter */
 
-/* Create a function called `sumation` that accepts a parameter and uses a counter to return the summation of that number. For example, `summation(4)` should return 10 because 1+2+3+4 is 10. */
+// The counter variable is assinged in the Sumuation function scope, since a for loop does not have its own scope if has acccess 
+// to the counter no problem.
+
+/* Create a function called `sumation` that accepts a parameter and uses a counter to return the summation of that number. 
+For example, `summation(4)` should return 10 because 1+2+3+4 is 10. */
+
+
+function summation(number){
+  let counter = 0
+   for(let i = 1; i <= number; i++){
+     counter += i
+   }
+   return counter
+}
+ 
+ console.log(summation(4)) 
